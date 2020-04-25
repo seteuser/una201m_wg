@@ -6,7 +6,8 @@ class Main{
     System.out.println("iniciando...");
         
     //MecanicaDoJogo mecanica = FabricaMecanicaDoJogo.nova();
-
+    Console console = new Console();
+    console.executa();
 
     System.out.println("fim, ok!");
         
