@@ -1,16 +1,13 @@
-class Main{
+public class Main {
 
-   
   public static void main(final String[] args) {
 
-    System.out.println("iniciando...");
-        
-    //MecanicaDoJogo mecanica = FabricaMecanicaDoJogo.nova();
-    Console console = new Console();
+    System.out.println("\n[status] main iniciando...");
+
+    final Console console = new Console();
     console.executa();
 
-    System.out.println("fim, ok!");
-        
+    System.out.println("[status] main fim, ok!\n");
 
-    }
+  }
 }

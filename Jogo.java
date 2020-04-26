@@ -1,33 +1,54 @@
-class Jogo {
+public class Jogo {
 
   private boolean encerrado;
+  private boolean acertado;
   private int pontuacao;
+  private int tentativa;
 
   private String alvo;
-  private String mixed; //alvo embaralhado
+  private String mixed; // alvo embaralhado
 
-  BancoDePalavras banco = new BancoDePalavras(); //vai sair pra estatico
-  Embaralhador mexe = new Embaralhador(); //vai sair pra estatico
+  BancoDePalavras banco = new BancoDePalavras(); // vai sair pra estatico
+  Embaralhador mexe = new Embaralhador(); // vai sair pra estatico
 
   public void inicializa() {
     this.encerrado = false;
-    this.pontuacao = 0;
+    this.acertado = false;
+
     this.alvo = banco.nova();
     this.mixed = mexe.altera(this.alvo);
+
+    // this.pontuacao = 0;
+    this.pontuacao = alvo.length() * 5;
+    this.tentativa = 0;
+
   }
 
-  public boolean estaEncerrado() {
-     return this.encerrado;
+  public boolean encerrado() {
+    return this.encerrado;
   }
 
   public int getPontuacao() {
-     return this.pontuacao;
+    return this.pontuacao;
   }
 
-  
+  public int getTentativa() {
+    return this.tentativa;
+  }
 
+  public boolean valida(final String chute) {
 
+    if (alvo.toUpperCase().equals(chute.toUpperCase())) {
+      this.encerrado = true;
+      this.acertado = true;
+      return true;
+    } else {
+      this.tentativa++;
+      this.pontuacao = this.pontuacao - 2 * this.tentativa;
+      return false;
+    }
 
+  }
 
   /* metodos temporarios. somente pra teste, em amb dev */
   public String getAlvo() {
@@ -37,6 +58,5 @@ class Jogo {
   public String getMixed() {
     return this.mixed;
   }
-
 
 }
