@@ -7,7 +7,7 @@ class BancoDePalavras {
 
   PalavraDAO dao = new PalavraDAO(); // mudar por estatico
 
-  public String nova(int size) {
+  public String nova(final int size) {
 
     return "tempsize";
 
@@ -16,24 +16,24 @@ class BancoDePalavras {
   public String nova() {
 
     String palavra = "";
-    ArrayList<String> listaPalavras = new ArrayList<String>();
-    Random random = new Random();
+    final ArrayList<String> listaPalavras = new ArrayList<String>();
+    final Random random = new Random();
 
     try {
-      RandomAccessFile dicionario = new RandomAccessFile("dicionario.txt", "r");
-      
-      while(palavra != null) {
-         palavra = dicionario.readLine();
-         if (palavra != null) 
-             listaPalavras.add(palavra);
+      final RandomAccessFile dicionario = new RandomAccessFile("dicionario.txt", "r");
+
+      while (palavra != null) {
+        palavra = dicionario.readLine();
+        if (palavra != null)
+          listaPalavras.add(palavra);
       }
       dicionario.close();
-    } catch (IOException ex) {
+    } catch (final IOException ex) {
       ex.printStackTrace();
       palavra = "";
     }
 
-    int sorte = random.nextInt(listaPalavras.size());
+    final int sorte = random.nextInt(listaPalavras.size());
     palavra = listaPalavras.get(sorte);
 
     return palavra;
