@@ -1,8 +1,12 @@
+import java.util.Random;
+
 public class Embaralhador {
 
   public String altera(final String palavra) {
 
-    final int sorte = 1;
+    final Random random = new Random();
+
+    final int sorte = random.nextInt(1);
 
     if (sorte == 1)
       return this.inverte(palavra);
@@ -27,7 +31,7 @@ public class Embaralhador {
   }
 
   /**
-   * não realiza nenhuma alteração na PALAVRA
+   * não realiza alteração na PALAVRA
    */
   private String mudaNada(final String palavra) {
 

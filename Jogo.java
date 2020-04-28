@@ -21,11 +21,17 @@ public class Jogo {
     // this.pontuacao = 0;
     this.pontuacao = alvo.length() * 5;
     this.tentativa = 0;
-
   }
 
+  public String getMixed() {
+    return this.mixed;
+  }
   public boolean encerrado() {
     return this.encerrado;
+  }
+
+  public boolean acertado() {
+    return this.acertado;
   }
 
   public int getPontuacao() {
@@ -38,12 +44,13 @@ public class Jogo {
 
   public boolean valida(final String chute) {
 
+    this.tentativa++;
+
     if (alvo.toUpperCase().equals(chute.toUpperCase())) {
       this.encerrado = true;
       this.acertado = true;
       return true;
     } else {
-      this.tentativa++;
       this.pontuacao = this.pontuacao - 2 * this.tentativa;
       return false;
     }
@@ -51,12 +58,9 @@ public class Jogo {
   }
 
   /* metodos temporarios. somente pra teste, em amb dev */
-  public String getAlvo() {
-    return this.alvo;
-  }
+  // public String getAlvo() {
+  //   return this.alvo;
+  // }
 
-  public String getMixed() {
-    return this.mixed;
-  }
 
 }

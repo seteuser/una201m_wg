@@ -12,7 +12,6 @@ public class Console {
 
     System.out.println("[status] jogo started...");
 
-    System.out.println("alvo -> " + jogo.getAlvo());
     System.out.println("mixed -> " + jogo.getMixed());
     System.out.println("pontos -> " + jogo.getPontuacao());
 
@@ -25,13 +24,17 @@ public class Console {
 
     }
 
-    //if(jogo.acertado()) {}
-    System.out.println("*** Parabéns! Voce acertou.");
-    System.out.println("Tentativas = " + jogo.getTentativa());
-    System.out.println("Pontuacao = " + jogo.getPontuacao());
-    
-    System.out.println("[status] jogo finished!");
+    if (jogo.acertado()) {
+      System.out.println("*** Parabéns! Voce acertou.");
+      System.out.println("Tentativas = " + jogo.getTentativa());
+      System.out.println("Pontuacao = " + jogo.getPontuacao());
+    } else {
+      
+    }  
 
+    System.out.println("[status] jogo finished!");
+    
+    teclado.close();
   }
 
 }
